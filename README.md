@@ -13,3 +13,4 @@ Sublime Text plugin with extended JavaScript, HTML and CSS support.
 * forin: Loop objects
 * imfunc: Create immediate function
 * jextend: jQuery extend with revealing module
+* switchtrue: Special switch with true
