@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+var ${1:args} = Array.prototype.slice.call(arguments, 0);
+]]></content>
+    <tabTrigger>convargs</tabTrigger>
+    <scope>source.js</scope>
+    <description>Convert function arguments into an array</description>
+</snippet>

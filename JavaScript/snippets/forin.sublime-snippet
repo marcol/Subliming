@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+for (${1:object} in ${2:key}) {
+    if (${1:object}.hasOwnProperty(${2:key})) {
+        ${3:block}
+    }
+}
+]]></content>
+    <tabTrigger>forin</tabTrigger>
+    <scope>source.js</scope>
+    <description>Loop objects</description>
+</snippet>
