@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+jQuery.extend(${1:object}, (function () {
+
+    'use strict';
+
+    ${2:block}
+
+    // expose
+    return {
+
+    };
+
+}()));
+]]></content>
+    <tabTrigger>jextend</tabTrigger>
+    <scope>source.js</scope>
+    <description>jQuery extend with revealing module</description>
+</snippet>

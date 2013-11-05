@@ -8,6 +8,8 @@ Sublime Text plugin with extended JavaScript, HTML and CSS support.
 ## JavaScript
 ### Patterns
 ### Snippets
-* forin: Loop objects
-* foreach: Loop arrays
 * convargs: Convert arguments into an array
+* foreach: Loop arrays
+* forin: Loop objects
+* imfunc: Create immediate function
+* jextend: jQuery extend with revealing module

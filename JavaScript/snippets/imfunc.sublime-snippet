@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+(function () {
+
+    'use strict';
+
+    ${1:block}
+
+}());
+]]></content>
+    <tabTrigger>imfunc</tabTrigger>
+    <scope>source.js</scope>
+    <description>Create an immediate function</description>
+</snippet>
