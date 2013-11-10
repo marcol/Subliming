@@ -1,6 +1,4 @@
-/*global define*/
-
-define(function () {
+(function () {
 
     'use strict';
 
@@ -55,4 +53,4 @@ define(function () {
         subscribe: subscribe
     };
 
-});
+}());
