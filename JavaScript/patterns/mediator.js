@@ -1,46 +1,58 @@
-var mediator = (function(){
+/*global define*/
 
-    // Storage for topics that can be broadcast or listened to
+define(function () {
+
+    'use strict';
+
+    // Topics
     var topics = {};
 
-    // Subscribe to a topic, supply a callback to be executed
-    // when that topic is broadcast to
-    var subscribe = function( topic, fn ){
+    /**
+     * Subscribe topic with a callback
+     * @param  {String}   topic topic name
+     * @param  {Function} fn    callback function
+     * @return {Object}         context
+     */
+    function subscribe(topic, fn) {
 
-        if ( !topics[topic] ){ 
-          topics[topic] = [];
+        /*jshint validthis: true*/
+
+        if (!topics[topic]) {
+            topics[topic] = [];
         }
 
-        topics[topic].push( { context: this, callback: fn } );
+        topics[topic].push({context: this, callback: fn});
 
         return this;
-    };
+    }
 
-    // Publish/broadcast an event to the rest of the application
-    var publish = function( topic ){
+    /**
+     * Publish a topic
+     * @param  {String} topic   topic name
+     * @return {Object|Boolean}  context or false
+     */
+    function publish(topic) {
 
-        var args;
+        /*jshint validthis: true*/
 
-        if ( !topics[topic] ){
-          return false;
-        } 
+        var i, li, cur;
 
-        args = Array.prototype.slice.call( arguments, 1 );
-        for ( var i = 0, l = topics[topic].length; i < l; i++ ) {
-
-            var subscription = topics[topic][i];
-            subscription.callback.apply( subscription.context, args );
+        if (!topics[topic]) {
+            return false;
         }
-        return this;
-    };
 
+        for (i = 0, li = topics[topic].length; i < li; i++) {
+            cur = topics[topic][i];
+            cur.callback.apply(cur.context,  Array.prototype.slice.call(arguments, 1));
+        }
+
+        return this;
+    }
+
+    // expose
     return {
         publish: publish,
-        subscribe: subscribe,
-        installTo: function( obj ){
-            obj.subscribe = subscribe;
-            obj.publish = publish;
-        }
+        subscribe: subscribe
     };
 
-}());
+});

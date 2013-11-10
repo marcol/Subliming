@@ -1,16 +1,16 @@
-var module = (function () {
+/*global define*/
+
+define(function () {
 
     'use strict';
 
-    var a;
-
-    function public_Func() {
+    function publicFunc() {
 
     }
 
     // expose
     return {
-        func: public_Func
+        func: publicFunc
     };
 
-}());
+});
