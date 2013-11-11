@@ -7,20 +7,28 @@
 import sublime, sublime_plugin, os, re, threading
 from os.path import basename
 
-class SublimingPatternCommand(sublime_plugin.TextCommand):
+BASE_PATH = os.path.abspath(os.path.dirname(__file__))
 
-        def run(self, edit):
-                print(self);
-                print(edit);
+class WritePatternCommand(sublime_plugin.TextCommand):
+        def run (self, edit, content):
+                self.view.insert(edit, self.view.size(), content);
+                self.view.set_syntax_file('Packages/JavaScript/JavaScript.tmLanguage')
 
-        def get_javascript_files(self, dir_name, *args):
-                fileList = []
-                for file in os.listdir(dir_name):
-                        dirfile = os.path.join(dir_name, file)
-                        if os.path.isfile(dirfile):
-                                fileName, fileExtension = os.path.splitext(dirfile)
-                                if fileExtension == ".js" and ".min." not in fileName:
-                                        fileList.append(dirfile)
-                        elif os.path.isdir(dirfile):
-                                fileList += self.get_javascript_files(dirfile, *args)
-                return fileList
+
+class GetPatternCommand(sublime_plugin.WindowCommand):
+
+        def run(self, pattern, pType):
+
+                patternFile = 'Packages/Subliming/' + pType + '/patterns/' + pattern + '.js'
+                content = self.get_file(patternFile)
+
+                if (content):      
+                        self.window.new_file()
+                        self.window.run_command('write_pattern', {'content': content});
+
+        def get_file(self, patternFile):
+                if hasattr(sublime, 'load_resource'):
+                        return sublime.load_resource(name)
+                else:
+                        with open(os.path.join(sublime.packages_path(), patternFile[9:])) as f: return f.read()
+

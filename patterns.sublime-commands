@@ -1,6 +1,7 @@
 [
     {
-        "caption": "Patterns: Memoization",
-        "command": "pattern_memoization"
+        "caption": "Patterns: Mediator",
+        "command": "get_pattern",
+        "args": {"pattern": "mediator", "pType": "JavaScript"}
     }
 ]
