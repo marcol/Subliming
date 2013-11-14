@@ -2,6 +2,16 @@
     {
         "caption": "Patterns: Mediator",
         "command": "get_pattern",
-        "args": {"pattern": "mediator", "pType": "JavaScript"}
+        "args": {"pattern": "mediator", "syntax": "JavaScript", "isNew": false}
+    },
+    {
+        "caption": "Patterns: Module",
+        "command": "get_pattern",
+        "args": {"pattern": "module", "syntax": "JavaScript", "isNew": false}
+    },
+    {
+        "caption": "Patterns: New JavaScript file",
+        "command": "get_pattern",
+        "args": {"pattern": "newfile", "syntax": "JavaScript", "isNew": true}
     }
 ]

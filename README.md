@@ -7,6 +7,10 @@ Sublime Text plugin with extended JavaScript, HTML and CSS support.
 
 ## JavaScript
 ### Patterns
+* New JavaScript file: creates a structured new JavaScript file
+* Mediator: inserts the mediator pattern
+* Module: inserts the module pattern
+
 ### Snippets
 * convargs: Convert arguments into an array
 * foreach: Loop arrays
