@@ -1,11 +1,11 @@
 [
     {
-        "caption": "Patterns: Mediator",
+        "caption": "Patterns: Mediator (JavaScript)",
         "command": "get_pattern",
         "args": {"pattern": "mediator", "syntax": "JavaScript", "isNew": false}
     },
     {
-        "caption": "Patterns: Module",
+        "caption": "Patterns: Module (JavaScript)",
         "command": "get_pattern",
         "args": {"pattern": "module", "syntax": "JavaScript", "isNew": false}
     },
@@ -13,5 +13,10 @@
         "caption": "Patterns: New JavaScript file",
         "command": "get_pattern",
         "args": {"pattern": "newfile", "syntax": "JavaScript", "isNew": true}
+    },
+    {
+        "caption": "Patterns: New HTML file",
+        "command": "get_pattern",
+        "args": {"pattern": "newfile", "syntax": "HTML", "isNew": true}
     }
 ]

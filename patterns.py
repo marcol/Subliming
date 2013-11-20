@@ -19,7 +19,14 @@ class GetPatternCommand(sublime_plugin.WindowCommand):
 
         def run(self, pattern, syntax, isNew):
 
-                patternFile = 'Packages/Subliming/' + syntax + '/patterns/' + pattern + '.js'
+                ext = '.js'
+
+                if (syntax == 'HTML') :
+                        ext = '.html'
+                elif (syntax == 'CSS') :
+                        ext = '.css'
+
+                patternFile = 'Packages/Subliming/' + syntax + '/patterns/' + pattern + ext
                 content = self.get_file(patternFile)
 
                 if (syntax == 'JavaScript'):
@@ -36,7 +43,7 @@ class GetPatternCommand(sublime_plugin.WindowCommand):
 
         def get_file(self, patternFile):
                 if hasattr(sublime, 'load_resource'):
-                        return sublime.load_resource(name)
+                        return sublime.load_resource(patternFile)
                 else:
                         with open(os.path.join(sublime.packages_path(), patternFile[9:])) as f: return f.read()
 
