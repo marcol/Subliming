@@ -20,25 +20,22 @@ class GetPatternCommand(sublime_plugin.WindowCommand):
         def run(self, pattern, syntax, isNew):
 
                 ext = '.js'
+                syntax_file = 'Packages/JavaScript/JavaScript.tmLanguage'
 
                 if (syntax == 'HTML') :
                         ext = '.html'
+                        syntax_file = 'Packages/HTML/HTML.tmLanguage'
                 elif (syntax == 'CSS') :
                         ext = '.css'
+                        syntax_file = 'Packages/CSS/CSS.tmLanguage'
 
                 patternFile = 'Packages/Subliming/' + syntax + '/patterns/' + pattern + ext
                 content = self.get_file(patternFile)
 
-                if (syntax == 'JavaScript'):
-                        syntax_file = 'Packages/JavaScript/JavaScript.tmLanguage'
-
-
                 if (content and isNew):      
                         self.window.new_file()
-                        self.window.run_command('write_pattern', {'content': content, 'syntax_file': syntax_file});
 
-                elif (content):
-                        self.window.run_command('write_pattern', {'content': content, 'syntax_file': syntax_file});                        
+                self.window.run_command('write_pattern', {'content': content, 'syntax_file': syntax_file});                        
 
 
         def get_file(self, patternFile):
