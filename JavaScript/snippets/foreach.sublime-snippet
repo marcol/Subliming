@@ -1,10 +1,10 @@
 <snippet>
     <content><![CDATA[
-${1:array}.forEach(function (element, index, array)) {
-    ${2:block}
-}
+forEach(function (element, index, array) {
+    ${1:// your code here ...}
+});
 ]]></content>
-    <tabTrigger>foreach</tabTrigger>
+    <tabTrigger>forEach</tabTrigger>
     <scope>source.js</scope>
     <description>Loop arrays</description>
 </snippet>
